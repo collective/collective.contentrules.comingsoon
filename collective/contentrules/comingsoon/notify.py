@@ -36,4 +36,4 @@ class NotifyComingSoon(BrowserView):
             except ConflictError:
                 raise
             except Exception as e:
-                logger.error("Nightly update error : %s" % str(e))
+                logger.error("Error when notifying coming soon events : %s" % str(e))
