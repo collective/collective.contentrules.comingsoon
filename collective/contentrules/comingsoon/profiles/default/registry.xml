@@ -1,0 +1,14 @@
+<registry
+  xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+  <record field="delay"
+          interface="collective.contentrules.comingsoon.interfaces.IComingSoonSettings"
+          name="collective.contentrules.comingsoon.interfaces.IComingSoonSettings.delay"
+          i18n:domain="collective.contentrules.comingsoon">
+     <field type="plone.registry.field.Int">
+         <title>Delay</title>
+         <description>help_comingsoon_delay</description>
+         <min>0</min>
+     </field>
+     <value>1</value>
+  </record>
+</registry>

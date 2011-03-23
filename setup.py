@@ -5,7 +5,7 @@ version = '1.0'
 
 setup(name='collective.contentrules.comingsoon',
       version=version,
-      description="A rule event type that handles that an event, or any content having a start date, will begin tomorrow, or within any delay.",
+      description="A rule type which is handled when an event, or any content having a start date, will begin tomorrow, or within any delay.",
       long_description=open("README.txt").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
       # Get more strings from
@@ -27,6 +27,7 @@ setup(name='collective.contentrules.comingsoon',
           'setuptools',
           # -*- Extra requirements: -*-
           'plone.app.contentrules',
+          'plone.app.registry',
       ],
       entry_points="""
       # -*- Entry points: -*-
@@ -34,6 +35,4 @@ setup(name='collective.contentrules.comingsoon',
       [z3c.autoinclude.plugin]
       target = plone
       """,
-      setup_requires=["PasteScript"],
-      paster_plugins=["ZopeSkel"],
       )

@@ -1,25 +1,26 @@
 import unittest
 
-#from zope.testing import doctestunit
-#from zope.component import testing
-from Testing import ZopeTestCase as ztc
+from DateTime import DateTime
 
+from Products.Five import zcml
 from Products.Five import fiveconfigure
 from Products.PloneTestCase import PloneTestCase as ptc
 from Products.PloneTestCase.layer import PloneSite
+from Products.CMFPlone.tests.utils import MockMailHost
+from Products.MailHost.interfaces import IMailHost
+
+import collective.contentrules.comingsoon
+
+
 ptc.setupPloneSite()
 
-import collective.contentrules
-
-
 class TestCase(ptc.PloneTestCase):
-
     class layer(PloneSite):
-
         @classmethod
         def setUp(cls):
             fiveconfigure.debug_mode = True
-            ztc.installPackage(collective.contentrules)
+            zcml.load_config('configure.zcml',
+                             collective.contentrules.comingsoon)
             fiveconfigure.debug_mode = False
 
         @classmethod
@@ -27,29 +28,54 @@ class TestCase(ptc.PloneTestCase):
             pass
 
 
+class ComingSoonRule(TestCase):
+
+    def afterSetUp(self):
+        self.loginAsPortalOwner()
+        portal = self.portal
+
+        portal.email_from_address = 'portal@test.com'
+        mockmailhost = MockMailHost('MailHost')
+        portal.MailHost = mockmailhost
+        sm = portal.getSiteManager()
+        sm.registerUtility(component=mockmailhost, provided=IMailHost)
+
+        portal.invokeFactory('Event', 'eventtoday',
+                             startDate=DateTime(),
+                             endDate=DateTime())
+        portal.invokeFactory('Event', 'eventtomorrow',
+                             startDate=DateTime() + 1,
+                             endDate=DateTime() + 1)
+        portal.invokeFactory('Event', 'eventthedayafter',
+                             startDate=DateTime() + 2,
+                             endDate=DateTime() + 2)
+        portal.portal_setup.runAllImportStepsFromProfile(
+            'profile-collective.contentrules.comingsoon:tests', purge_old=False)
+
+        portal.acl_users.userFolderAddUser(
+                'reviewer', 'secret', ['Member', 'Reviewer'], [])
+        portal.portal_membership.getMemberById('reviewer').setMemberProperties(
+                                                {'email': 'reviewer@null.com'})
+
+    def test_notify(self):
+        portal = self.portal
+        mailhost = portal.MailHost
+        portal.restrictedTraverse('@@comingsoon-notify')()
+
+        self.assertEqual(len(mailhost.messages), 1)
+        message = mailhost.messages[0]
+        self.assertTrue('reviewer@null.com' in message)
+        self.assertFalse(portal.eventtoday.absolute_url() in message)
+        self.assertTrue(portal.eventtomorrow.absolute_url() in message)
+        self.assertFalse(portal.eventthedayafter.absolute_url() in message)
+
+
 def test_suite():
-    return unittest.TestSuite([
+    from unittest import TestSuite, makeSuite
+    suite = TestSuite()
+    suite.addTest(makeSuite(ComingSoonRule))
+    return suite
 
-        # Unit tests
-        #doctestunit.DocFileSuite(
-        #    'README.txt', package='collective.contentrules',
-        #    setUp=testing.setUp, tearDown=testing.tearDown),
-
-        #doctestunit.DocTestSuite(
-        #    module='collective.contentrules.mymodule',
-        #    setUp=testing.setUp, tearDown=testing.tearDown),
-
-
-        # Integration tests that use PloneTestCase
-        #ztc.ZopeDocFileSuite(
-        #    'README.txt', package='collective.contentrules',
-        #    test_class=TestCase),
-
-        #ztc.FunctionalDocFileSuite(
-        #    'browser.txt', package='collective.contentrules',
-        #    test_class=TestCase),
-
-        ])
 
 if __name__ == '__main__':
     unittest.main(defaultTest='test_suite')

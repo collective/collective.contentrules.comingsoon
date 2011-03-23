@@ -2,18 +2,57 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:five="http://namespaces.zope.org/five"
     xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:browser="http://namespaces.zope.org/browser"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
-    i18n_domain="collective.contentrules">
+    i18n_domain="collective.contentrules.comingsoon">
+
+  <include package="Products.CMFCore" />
 
   <five:registerPackage package="." initialize=".initialize" />
 
+  <i18n:registerTranslations directory="locales" />
+
   <genericsetup:registerProfile
       name="default"
-      title="collective.contentrules"
+      title="collective.contentrules.comingsoon"
       directory="profiles/default"
       description="Installs the collective.contentrules package"
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
-  <!-- -*- extra stuff goes here -*- -->
-  
+
+  <genericsetup:registerProfile
+      name="tests"
+      title="collective.contentrules.comingsoon"
+      directory="profiles/tests"
+      description="Installs the collective.contentrules package"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
+      />
+
+  <interface
+      interface=".interfaces.IComingSoon"
+      type="plone.contentrules.rule.interfaces.IRuleEventType"
+      name="Coming soon"
+      />
+
+  <subscriber
+      for=".interfaces.IComingSoon"
+      handler="plone.app.contentrules.handlers.execute_rules"
+      />
+
+  <browser:page
+      name="comingsoon-notify"
+      for="Products.CMFPlone.interfaces.siteroot.IPloneSiteRoot"
+      class=".notify.NotifyComingSoon"
+      attribute="notify"
+      permission="cmf.ManagePortal"
+      />
+
+  <browser:page
+      name="comingsoon-settings"
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      class=".controlpanel.ComingSoonControlPanel"
+      permission="cmf.ManagePortal"
+      />
+
 </configure>

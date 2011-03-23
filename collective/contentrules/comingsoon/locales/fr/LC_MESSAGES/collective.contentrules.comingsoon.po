@@ -1,0 +1,35 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2011-03-22 13:42+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: DOMAIN\n"
+
+#: ../controlpanel.py:11
+msgid "Coming soon content rule settings"
+msgstr "Paramètres des règles 'Coming soon'"
+
+#. Default: "You can set here some options related to the coming soon rule type."
+#: ../controlpanel.py:12
+msgid "help_coming_soon_settings_editform"
+msgstr "Vous pouvez saisir ici les options relatives aux règles 'Coming soon'"
+
+#. Default: "Type here delay (in days) the coming soon rule will be handled before which an event will start. For example, a delay of 1 significates the event will be handled the day before the event content start date"
+#: ../interfaces.py:16
+msgid "help_comingsoon_delay"
+msgstr "Saisissez ici le délai (en jours) précédant le contenu Événemement où la règle 'Coming soon' sera déclenchée. Par exemple, un délai de 1 signifie que la règle sera déclenchée la veille de la date de début de chaque contenu événement."
+
+#. Default: "Rule handle delay"
+#: ../interfaces.py:14
+msgid "label_comingsoon_delay"
+msgstr "Délai de déclenchement de la règle"
+

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<object
+    name="portal_controlpanel"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    i18n:domain="bonduellequality"
+    purge="False">
+
+    <configlet
+        title="Coming soon"
+        action_id="comingsoon-settings"
+        appId="collective.contentrules.comingsoon"
+        category="Products"
+        condition_expr=""
+        icon_expr="string:${portal_url}/contentrules_icon.png"
+        url_expr="string:${portal_url}/@@comingsoon-settings"
+        visible="True"
+        i18n:attributes="title">
+            <permission>Manage portal</permission>
+    </configlet>
+
+</object>

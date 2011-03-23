@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<contentrules>
+ <rule name="rule-1" title="Comes tomorrow" description="" enabled="True"
+    event="collective.contentrules.comingsoon.interfaces.IComingSoon"
+    stop-after="False">
+  <conditions/>
+  <actions>
+   <action type="plone.actions.Mail">
+    <property name="source"/>
+    <property name="message">${url}</property>
+    <property name="recipients">${reviewer_emails}</property>
+    <property name="subject">C'est pour bientot</property>
+   </action>
+  </actions>
+ </rule>
+ <assignment name="rule-1" bubbles="True" enabled="True" location=""/>
+</contentrules>
