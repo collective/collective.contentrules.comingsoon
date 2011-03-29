@@ -30,10 +30,17 @@ class NotifyComingSoon(BrowserView):
         deadline = DateTime(DateTime().Date()) + delay
         brains = catalog.searchResults(start={'query': (deadline, deadline + 1),
                                               'range': 'minmax'})
+        error = 0
         for brain in brains:
             try:
                 notify(ComingSoonEvent(brain.getObject()))
             except ConflictError:
                 raise
             except Exception as e:
+                error = 1
                 logger.error("Error when notifying coming soon events : %s" % str(e))
+
+        if error:
+            return 'error'
+        else:
+            return 'ok'
