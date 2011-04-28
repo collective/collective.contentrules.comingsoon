@@ -1,17 +1,20 @@
 Changelog
 =========
 
-1.1 (unreleased)
-----------------
+1.0.2 (unreleased)
+------------------
+
+- Add buildout & bootstrap.
+  [toutpt]
+
+- Add dependency of plone.app.registry in default profile and upgrade step.
+  [toutpt]
+
+1.0.1 (2011-04-27)
+------------------
 
 - Avoid ComponentLookupError with Plone 4.0.
   [thomasdesvenain]
-
-- Add buildout & bootstrap
-  [toutpt]
-
-- Add dependency of plone.app.registry in default profile and upgrade step
-  [toutpt]
 
 1.0 (2011-04-06)
 ----------------
