@@ -7,6 +7,11 @@ Changelog
 - Avoid ComponentLookupError with Plone 4.0.
   [thomasdesvenain]
 
+- Add buildout & bootstrap
+  [toutpt]
+
+- Add dependency of plone.app.registry in default profile and upgrade step
+  [toutpt]
 
 1.0 (2011-04-06)
 ----------------

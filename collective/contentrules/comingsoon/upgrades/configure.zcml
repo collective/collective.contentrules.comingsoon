@@ -1,0 +1,15 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:gs="http://namespaces.zope.org/genericsetup"
+    i18n_domain="collective.contentrules.comingsoon">
+
+<gs:upgradeStep
+    title="Add plone.app.registry"
+    description="upgrade step"
+    source="1000"
+    destination="1100"
+    handler=".step.upgrade_1000_to_1100"
+    profile="collective.contentrules.comingsoon:default"/>
+
+
+</configure>

@@ -30,6 +30,8 @@
       for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
       />
 
+  <include package=".upgrades"/>
+
   <interface
       interface=".interfaces.IComingSoon"
       type="plone.contentrules.rule.interfaces.IRuleEventType"
