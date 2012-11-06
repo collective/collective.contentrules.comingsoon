@@ -47,7 +47,6 @@
       name="comingsoon-notify"
       for="Products.CMFPlone.interfaces.siteroot.IPloneSiteRoot"
       class=".notify.NotifyComingSoon"
-      attribute="notify"
       permission="cmf.ManagePortal"
       />
 

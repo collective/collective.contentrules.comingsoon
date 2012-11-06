@@ -49,6 +49,11 @@ class ComingSoonRule(TestCase):
         portal.invokeFactory('Event', 'eventthedayafter',
                              startDate=DateTime() + 2,
                              endDate=DateTime() + 2)
+        portal.invokeFactory('Event', 'eventexpirestoday',
+                             startDate=DateTime() - 5,
+                             endDate=DateTime() - 5,
+                             expirationDate=DateTime()+1,
+                             )
         portal.portal_setup.runAllImportStepsFromProfile(
             'profile-collective.contentrules.comingsoon:tests', purge_old=False)
 
@@ -68,6 +73,20 @@ class ComingSoonRule(TestCase):
         self.assertFalse(portal.eventtoday.absolute_url() in message)
         self.assertTrue(portal.eventtomorrow.absolute_url() in message)
         self.assertFalse(portal.eventthedayafter.absolute_url() in message)
+        self.assertFalse(portal.eventexpirestoday.absolute_url() in message)
+        
+    def test_notify_custom_index(self):
+        portal = self.portal
+        mailhost = portal.MailHost
+        portal.REQUEST.form['index'] = 'expires'
+        portal.restrictedTraverse('@@comingsoon-notify')()
+        self.assertEqual(len(mailhost.messages), 1)
+        message = mailhost.messages[0]
+        self.assertTrue('reviewer@null.com' in message)
+        self.assertFalse(portal.eventtoday.absolute_url() in message)
+        self.assertFalse(portal.eventtomorrow.absolute_url() in message)
+        self.assertFalse(portal.eventthedayafter.absolute_url() in message)
+        self.assertTrue(portal.eventexpirestoday.absolute_url() in message)
 
 
 def test_suite():
