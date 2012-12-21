@@ -1,11 +1,12 @@
 Changelog
 =========
 
-1.0.3 (unreleased)
-------------------
+1.1 (2012-12-21)
+----------------
 
 - index is now a view parameter (for example, for expirationDate : @@comingsoon-notify?index=expires)
   [cedricmessiant]
+
 - Update buildout
   [cedricmessiant]
 
