@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2011-03-22 13:42+0000\n"
+"POT-Creation-Date: 2013-03-12 17:15+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,18 +21,34 @@ msgstr ""
 msgid "Coming soon content rule settings"
 msgstr ""
 
+#: ../interfaces.py:24
+msgid "Delay"
+msgstr ""
+
+#: ../interfaces.py:42
+msgid "Delays"
+msgstr ""
+
+#: ../interfaces.py:43
+msgid "Per content types delays"
+msgstr ""
+
+#: ../interfaces.py:20
+msgid "Portal type"
+msgstr ""
+
 #. Default: "You can set here some options related to the coming soon rule type."
 #: ../controlpanel.py:12
 msgid "help_coming_soon_settings_editform"
 msgstr ""
 
 #. Default: "Type here delay (in days) the coming soon rule will be handled before which an event will start. For example, a delay of 1 significates the event will be handled the day before the event content start date"
-#: ../interfaces.py:16
+#: ../interfaces.py:33
 msgid "help_comingsoon_delay"
 msgstr ""
 
 #. Default: "Rule handle delay"
-#: ../interfaces.py:14
+#: ../interfaces.py:31
 msgid "label_comingsoon_delay"
 msgstr ""
 

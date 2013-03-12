@@ -4,7 +4,8 @@ Changelog
 1.2 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- It is now possible to use per content type delays !
+  [cedricmessiant]
 
 
 1.1 (2012-12-21)

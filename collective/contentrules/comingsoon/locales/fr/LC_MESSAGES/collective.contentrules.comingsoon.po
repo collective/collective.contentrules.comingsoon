@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.contentrules.comingsoon\n"
-"POT-Creation-Date: 2011-03-22 13:42+0000\n"
-"PO-Revision-Date: 2013-03-12 15:25+0100\n"
+"POT-Creation-Date: 2013-03-12 17:15+0000\n"
+"PO-Revision-Date: 2013-03-12 18:16+0100\n"
 "Last-Translator: Cédric Messiant <cedricmessiant@ecreall.com>\n"
 "Language-Team: Ecréall\n"
 "MIME-Version: 1.0\n"
@@ -18,18 +18,34 @@ msgstr ""
 msgid "Coming soon content rule settings"
 msgstr "Paramètres des règles 'Coming soon'"
 
+#: ../interfaces.py:24
+msgid "Delay"
+msgstr "Délai"
+
+#: ../interfaces.py:42
+msgid "Delays"
+msgstr "Délais"
+
+#: ../interfaces.py:43
+msgid "Per content types delays"
+msgstr "Délais par types de contenus"
+
+#: ../interfaces.py:20
+msgid "Portal type"
+msgstr "Type de contenu (portal type)"
+
 #. Default: "You can set here some options related to the coming soon rule type."
 #: ../controlpanel.py:12
 msgid "help_coming_soon_settings_editform"
 msgstr "Vous pouvez saisir ici les options relatives aux règles 'Coming soon'"
 
 #. Default: "Type here delay (in days) the coming soon rule will be handled before which an event will start. For example, a delay of 1 significates the event will be handled the day before the event content start date"
-#: ../interfaces.py:16
+#: ../interfaces.py:33
 msgid "help_comingsoon_delay"
 msgstr "Saisissez ici le délai (en jours) précédant le contenu Événement où la règle 'Coming soon' sera déclenchée. Par exemple, un délai de 1 signifie que la règle sera déclenchée la veille de la date de début de chaque contenu événement."
 
 #. Default: "Rule handle delay"
-#: ../interfaces.py:14
+#: ../interfaces.py:31
 msgid "label_comingsoon_delay"
 msgstr "Délai de déclenchement de la règle"
 

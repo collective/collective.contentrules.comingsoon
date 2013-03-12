@@ -26,6 +26,9 @@ setup(name='collective.contentrules.comingsoon',
       install_requires=[
           'setuptools',
           # -*- Extra requirements: -*-
+          "collective.z3cform.datagridfield",
+          "five.grok",
+          "plone.api",
           'plone.app.contentrules',
           'plone.app.registry',
       ],
