@@ -1,5 +1,7 @@
 from plone import api
 
+from ecreall.helpers.upgrade.interfaces import IUpgradeTool
+
 
 def upgrade_1000_to_1100(context):
     """We have added plone.app.registry as dependency
@@ -11,7 +13,6 @@ def upgrade_1000_to_1100(context):
 
 
 def v1101(context):
-    """Upgrade to 1101"""
-    setup = api.portal.get_tool(name='portal_setup')
-    setup.runImportStepFromProfile('profile-collective.contentrules.comingsoon.upgrades:v1101',
-                                   'registry', run_dependencies=False, purge_old=False)
+    """Upgrade to v1101"""
+    tool = IUpgradeTool(context)
+    tool.runProfile('collective.contentrules.comingsoon.upgrades:v1101')

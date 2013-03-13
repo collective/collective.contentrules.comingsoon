@@ -3,13 +3,33 @@
     xmlns:gs="http://namespaces.zope.org/genericsetup"
     i18n_domain="collective.contentrules.comingsoon">
 
-<gs:upgradeStep
-    title="Add plone.app.registry"
-    description="upgrade step"
-    source="1000"
-    destination="1100"
-    handler=".step.upgrade_1000_to_1100"
-    profile="collective.contentrules.comingsoon:default"/>
+    <include package="ecreall.helpers.upgrade" />
 
+	<gs:upgradeStep
+	    title="Add plone.app.registry"
+	    description="upgrade step"
+	    source="1000"
+	    destination="1100"
+	    handler=".step.upgrade_1000_to_1100"
+	    profile="collective.contentrules.comingsoon:default"
+	    />
+
+	<gs:registerProfile
+	      name="v1101"
+	      title="collective.contentrules.comingsoon"
+	      directory="profiles/v1101"
+	      description="Upgrade profile for collective.contentrules.comingsoon to version 1101"
+	      provides="Products.GenericSetup.interfaces.EXTENSION"
+	      for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
+	      />
+
+	<gs:upgradeStep
+	    title="Upgrade for collective.contentrules.comingsoon to version 1101"
+	    description="Upgrade step to v1101"
+	    source="1100"
+	    destination="1101"
+	    handler=".step.v1101"
+	    profile="collective.contentrules.comingsoon:default"
+	    />
 
 </configure>
