@@ -19,10 +19,12 @@ class IDelayTableRowSchema(Interface):
     portal_type = schema.Choice(
                 title=_(u"Portal type"),
                 vocabulary="plone.app.vocabularies.ReallyUserFriendlyTypes",
+                required=False,
                 )
     delay = schema.Choice(
                 title=_(u"Delay"),
                 vocabulary="DelayVocabulary",
+                required=False,
                 )
 
 
