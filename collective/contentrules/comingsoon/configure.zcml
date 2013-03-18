@@ -14,6 +14,7 @@
 
   <include package="Products.CMFCore" />
   <include package="plone.app.registry" />
+  <include package="plone.app.vocabularies" />
   <include package="collective.z3cform.datagridfield" />
 
   <five:registerPackage package="." initialize=".initialize" />

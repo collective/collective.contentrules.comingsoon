@@ -32,6 +32,7 @@ setup(name='collective.contentrules.comingsoon',
           "plone.api",
           'plone.app.contentrules',
           'plone.app.registry',
+          'plone.app.vocabularies',
       ],
       entry_points="""
       # -*- Entry points: -*-
