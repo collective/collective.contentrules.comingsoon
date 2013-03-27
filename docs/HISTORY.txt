@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.2 (unreleased)
+1.2 (2013-03-27)
 ----------------
 
 - It is now possible to use per content type delays !
