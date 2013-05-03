@@ -26,25 +26,26 @@ class NotifyComingSoon(BrowserView):
 
     def notify(self, index='start'):
         registry = getUtility(IRegistry)
-        delays = registry.forInterface(IComingSoonSettings).delays
-        delays = {item['portal_type']: item['delay'] for item in delays}
         catalog = api.portal.get_tool(name='portal_catalog')
+        delays = registry.forInterface(IComingSoonSettings).delays
         error = 0
-        for portal_type, delay in delays.iteritems():
-            deadline = DateTime(DateTime().Date()) + delay
-            params = {'portal_type': portal_type,
-                      index: {'query': (deadline, deadline + 1),
-                              'range': 'minmax'},
-                      }
-            brains = catalog.searchResults(**params)
-            for brain in brains:
-                try:
-                    notify(ComingSoonEvent(brain.getObject()))
-                except ConflictError:
-                    raise
-                except Exception as e:
-                    error = 1
-                    logger.error("Error when notifying coming soon events : %s" % str(e))
+        if delays is not None:
+            delays = {item['portal_type']: item['delay'] for item in delays}
+            for portal_type, delay in delays.iteritems():
+                deadline = DateTime(DateTime().Date()) + delay
+                params = {'portal_type': portal_type,
+                          index: {'query': (deadline, deadline + 1),
+                                  'range': 'minmax'},
+                          }
+                brains = catalog.searchResults(**params)
+                for brain in brains:
+                    try:
+                        notify(ComingSoonEvent(brain.getObject()))
+                    except ConflictError:
+                        raise
+                    except Exception as e:
+                        error = 1
+                        logger.error("Error when notifying coming soon events : %s" % str(e))
 
         # default (old behavior)
         default_delay = registry.forInterface(IComingSoonSettings).delay
