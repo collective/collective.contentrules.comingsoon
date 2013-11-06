@@ -4,6 +4,15 @@ Changelog
 1.3 (unreleased)
 ----------------
 
+- Added more strings classifiers items for this packages
+  [macagua]
+
+- Added Spanish translation
+  [macagua]
+
+- Added more improvements about i18n
+  [macagua]
+
 - Fix bug with delays (use default_delay if delays == None)
   [cedricmessiant]
 
