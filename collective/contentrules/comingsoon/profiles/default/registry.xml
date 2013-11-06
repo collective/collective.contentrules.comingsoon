@@ -1,23 +1,22 @@
 <registry
-  xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+  xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+  i18n:domain="plone">
   <record field="delay"
           interface="collective.contentrules.comingsoon.interfaces.IComingSoonSettings"
-          name="collective.contentrules.comingsoon.interfaces.IComingSoonSettings.delay"
-          i18n:domain="collective.contentrules.comingsoon">
+          name="collective.contentrules.comingsoon.interfaces.IComingSoonSettings.delay">
      <field type="plone.registry.field.Int">
-         <title>Default delay</title>
-         <description>help_comingsoon_delay</description>
+         <title i18n:translate="">Default delay</title>
+         <description i18n:translate="help_comingsoon_delay">For each content type, type here delay (in days) the coming soon rule will be handled before which an event will start. For example, a delay of 1 signify the event will be handled the day before the event content start date</description>
          <min>0</min>
      </field>
      <value>1</value>
   </record>
   <record field="delays"
           interface="collective.contentrules.comingsoon.interfaces.IComingSoonSettings"
-          name="collective.contentrules.comingsoon.interfaces.IComingSoonSettings.delays"
-          i18n:domain="collective.contentrules.comingsoon">
+          name="collective.contentrules.comingsoon.interfaces.IComingSoonSettings.delays">
      <field type="plone.registry.field.List">
-         <title>Per content types delays</title>
-         <description>help_comingsoon_delays</description>
+         <title i18n:translate="">Per content types delays</title>
+         <description i18n:translate="help_comingsoon_contenttypes_delay">Para cada tipo de contenido, ingrese aquí el retardo (en días) antes de la regla 'Acontecimiento próximo' será manejado antes de que comenzará un evento. Por ejemplo, un retardo de 1 significa que el evento será manejado el día antes de que la fecha de inicio del contenido evento</description>
      </field>
   </record>
 </registry>

@@ -44,7 +44,7 @@ class IComingSoonSettings(Interface):
         title=_("Delays"),
         value_type=DictRow(title=_(u'Per content types delays'),
                            schema=IDelayTableRowSchema),
-        description=_("help_comingsoon_delay",
+        description=_("help_comingsoon_contenttypes_delay",
                       default=u"For each content type, type here delay "
                                "(in days) the coming soon "
                                "rule will be handled "

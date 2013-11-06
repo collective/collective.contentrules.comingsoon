@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"POT-Creation-Date: 2013-11-06 15:32+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -13,4 +13,36 @@ msgstr ""
 "Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
+
+#: ../configure.zcml
+msgid "Coming soon"
+msgstr ""
+
+#. Default: "Coming soon Content Rules"
+#: Default Profile title in configure.zcml
+msgid "Coming soon Content Rules"
+msgstr ""
+
+#: ../profiles/default/registry.xml
+msgid "Default delay"
+msgstr ""
+
+#. Default: "Installs Coming soon Content Rules package"
+#: Default Profile description in configure.zcml
+msgid "Installs Coming soon Content Rules package"
+msgstr ""
+
+#: ../profiles/default/registry.xml
+msgid "Per content types delays"
+msgstr ""
+
+#. Default: "Para cada tipo de contenido, ingrese aquí el retardo (en días) antes de la regla 'Acontecimiento próximo' será manejado antes de que comenzará un evento. Por ejemplo, un retardo de 1 significa que el evento será manejado el día antes de que la fecha de inicio del contenido evento"
+#: ../profiles/default/registry.xml
+msgid "help_comingsoon_contenttypes_delay"
+msgstr ""
+
+#. Default: "For each content type, type here delay (in days) the coming soon rule will be handled before which an event will start. For example, a delay of 1 signify the event will be handled the day before the event content start date"
+#: ../profiles/default/registry.xml
+msgid "help_comingsoon_delay"
+msgstr ""
 

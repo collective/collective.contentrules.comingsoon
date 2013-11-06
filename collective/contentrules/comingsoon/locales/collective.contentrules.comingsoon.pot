@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-03-12 17:15+0000\n"
+"POT-Creation-Date: 2013-11-06 15:32+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,19 +17,23 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: collective.contentrules.comingsoon\n"
 
+#: ../profiles/default/controlpanel.xml
+msgid "Coming soon"
+msgstr ""
+
 #: ../controlpanel.py:11
 msgid "Coming soon content rule settings"
 msgstr ""
 
-#: ../interfaces.py:24
+#: ../interfaces.py:25
 msgid "Delay"
 msgstr ""
 
-#: ../interfaces.py:42
+#: ../interfaces.py:44
 msgid "Delays"
 msgstr ""
 
-#: ../interfaces.py:43
+#: ../interfaces.py:45
 msgid "Per content types delays"
 msgstr ""
 
@@ -42,13 +46,18 @@ msgstr ""
 msgid "help_coming_soon_settings_editform"
 msgstr ""
 
+#. Default: "For each content type, type here delay (in days) the coming soon rule will be handled before which an event will start. For example, a delay of 1 signify the event will be handled the day before the event content start date"
+#: ../interfaces.py:47
+msgid "help_comingsoon_contenttypes_delay"
+msgstr ""
+
 #. Default: "Type here delay (in days) the coming soon rule will be handled before which an event will start. For example, a delay of 1 significates the event will be handled the day before the event content start date"
-#: ../interfaces.py:33
+#: ../interfaces.py:35
 msgid "help_comingsoon_delay"
 msgstr ""
 
 #. Default: "Rule handle delay"
-#: ../interfaces.py:31
+#: ../interfaces.py:33
 msgid "label_comingsoon_delay"
 msgstr ""
 
