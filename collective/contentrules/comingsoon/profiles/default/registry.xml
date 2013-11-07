@@ -16,7 +16,7 @@
           name="collective.contentrules.comingsoon.interfaces.IComingSoonSettings.delays">
      <field type="plone.registry.field.List">
          <title i18n:translate="">Per content types delays</title>
-         <description i18n:translate="help_comingsoon_contenttypes_delay">Para cada tipo de contenido, ingrese aquí el retardo (en días) antes de la regla 'Acontecimiento próximo' será manejado antes de que comenzará un evento. Por ejemplo, un retardo de 1 significa que el evento será manejado el día antes de que la fecha de inicio del contenido evento</description>
+         <description i18n:translate="help_comingsoon_contenttypes_delay">For each content type, type here delay (in days) the coming soon rule will be handled before which an event will start. For example, a delay of 1 signify the event will be handled the day before the event content start date</description>
      </field>
   </record>
 </registry>
