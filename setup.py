@@ -6,7 +6,7 @@ version = '1.3.dev0'
 setup(name='collective.contentrules.comingsoon',
       version=version,
       description="A rule type which is handled when an event, or any content having a start date, will begin tomorrow, or within any delay.",
-      long_description=open("README.txt").read() + "\n" +
+      long_description=open("README.rst").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
       # Get more strings from
       # http://pypi.python.org/pypi?:action=list_classifiers
