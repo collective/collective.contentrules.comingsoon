@@ -28,6 +28,14 @@
       description="Installs Coming soon Content Rules package"
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
+  <genericsetup:registerProfile
+      name="uninstall"
+      title="Coming soon Content Rules (uninstall)"
+      directory="profiles/uninstall"
+      description="Unstalls Coming soon Content Rules package"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
 
   <genericsetup:registerProfile
       name="tests"

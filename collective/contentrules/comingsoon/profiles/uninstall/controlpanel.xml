@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<object name="portal_controlpanel">
+    <configlet
+        remove="True"
+        action_id="comingsoon-settings"
+        appId="collective.contentrules.comingsoon"
+        category="Products"
+        title="Coming soon"
+        />
+</object>

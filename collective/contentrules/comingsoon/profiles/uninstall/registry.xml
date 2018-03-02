@@ -1,0 +1,12 @@
+<registry>
+  <record 
+      remove="True"
+      field="delay"
+      interface="collective.contentrules.comingsoon.interfaces.IComingSoonSettings"
+      name="collective.contentrules.comingsoon.interfaces.IComingSoonSettings.delay"/>
+  <record
+      remove="True"
+      field="delays"
+      interface="collective.contentrules.comingsoon.interfaces.IComingSoonSettings"
+      name="collective.contentrules.comingsoon.interfaces.IComingSoonSettings.delays"/>
+</registry>
