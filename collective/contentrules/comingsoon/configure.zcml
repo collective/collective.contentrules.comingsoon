@@ -73,4 +73,10 @@
       permission="cmf.ManagePortal"
       />
 
+  <utility
+      provides="zope.schema.interfaces.IVocabularyFactory"
+      component=".vocabulary.AllDateIndexVocabulary"
+      name="collective.contentrules.comingsoon.alldateindex"
+      />
+
 </configure>
