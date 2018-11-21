@@ -19,6 +19,12 @@ Changelog
 - Fix bug with delays (use default_delay if delays == None)
   [cedricmessiant]
 
+- Added compatibility for Plone 5, deprecate Plone < 4.3
+  [rodfersou, instification]
+
+- Fix tests, set up Travis CI
+  [rodfersou, instification]
+
 
 1.2 (2013-03-27)
 ----------------

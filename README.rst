@@ -22,3 +22,8 @@ whose start date is among a defined delay.
 
 The notification delay can be set on 'Coming soon' configuration page.
 The default delay is one day.
+
+Requirements
+------------
+
+> Plone 4.3.x and above (http://plone.org/products/plone)

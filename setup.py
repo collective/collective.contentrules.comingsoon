@@ -14,9 +14,9 @@ setup(name='collective.contentrules.comingsoon',
         "Development Status :: 3 - Alpha",
         "Environment :: Web Environment",
         "Framework :: Plone",
-        "Framework :: Plone :: 4.1",
-        "Framework :: Plone :: 4.2",
         "Framework :: Plone :: 4.3",
+        "Framework :: Plone :: 5.0",
+        "Framework :: Plone :: 5.1",
         "Framework :: Zope2",
         "Framework :: Zope3",
         "Intended Audience :: Developers",
@@ -48,6 +48,11 @@ setup(name='collective.contentrules.comingsoon',
           'plone.app.registry',
           'plone.app.vocabularies',
       ],
+      extras_require={
+          'test': [
+              'plone.app.testing',
+          ],
+      },
       entry_points="""
       # -*- Entry points: -*-
 
