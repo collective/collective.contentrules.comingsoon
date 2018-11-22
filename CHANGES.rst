@@ -4,6 +4,9 @@ Changelog
 1.3 (unreleased)
 ----------------
 
+- Add date index condition.
+  [rodfersou]
+
 - Add uninstall profile.
   [thet]
 
