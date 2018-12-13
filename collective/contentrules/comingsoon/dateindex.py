@@ -15,12 +15,6 @@ from zope.interface import implementer
 from zope.interface import Interface
 
 
-try:
-    from Products.ATContentTypes.interfaces import IFileContent
-except ImportError:
-    IFileContent = None
-
-
 class IDateIndexCondition(Interface):
     """Interface for the configurable aspects of a portal type condition.
 
@@ -43,7 +37,7 @@ class DateIndexCondition(SimpleItem):
     Note that we must mix in Explicit to keep Zope 2 security happy.
     """
 
-    date_index = u''
+    date_index = u'start'
     element = 'comingsoon.condition.DateIndex'
 
     @property
