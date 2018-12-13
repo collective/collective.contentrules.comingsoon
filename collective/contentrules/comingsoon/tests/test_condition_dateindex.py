@@ -5,13 +5,16 @@ from collective.contentrules.comingsoon.interfaces import IComingSoon
 from collective.contentrules.comingsoon.testing import INTEGRATION_TESTING
 from DateTime import DateTime
 from plone.app.contentrules.rule import Rule
-from plone.app.contentrules.tests.base import ContentRulesTestCase
+from plone.app.testing import setRoles
+from plone.app.testing import TEST_USER_ID
 from plone.contentrules.engine.interfaces import IRuleStorage
 from plone.contentrules.rule.interfaces import IExecutable
 from plone.contentrules.rule.interfaces import IRuleCondition
 from zope.component import getUtility, getMultiAdapter
 from zope.component.interfaces import IObjectEvent
 from zope.interface import implements
+
+import unittest
 
 
 class DummyEvent(object):
@@ -21,12 +24,13 @@ class DummyEvent(object):
         self.object = obj
 
 
-class TestDateIndexCondition(ContentRulesTestCase):
+class TestDateIndexCondition(unittest.TestCase):
 
     layer = INTEGRATION_TESTING
 
-    def afterSetUp(self):
-        self.setRoles(('Manager', ))
+    def setUp(self):
+        self.portal = self.layer['portal']
+        setRoles(self.portal, TEST_USER_ID, ['Manager'])
 
     def testRegistered(self):
         element = getUtility(IRuleCondition, name='comingsoon.condition.DateIndex')
@@ -44,7 +48,7 @@ class TestDateIndexCondition(ContentRulesTestCase):
         adding = getMultiAdapter((rule, self.portal.REQUEST), name='+condition')
         addview = getMultiAdapter((adding, self.portal.REQUEST), name=element.addview)
 
-        addview.createAndAdd(data={'group_names': ['Manager']})
+        addview.createAndAdd(data={'date_index': 'start'})
 
         e = rule.conditions[0]
         self.assertIsInstance(e, DateIndexCondition)
@@ -60,7 +64,7 @@ class TestDateIndexCondition(ContentRulesTestCase):
         e = DateIndexCondition()
         e.date_index = 'expires'
 
-        ex = getMultiAdapter((self.portal, e, DummyEvent(self.folder)), IExecutable)
+        ex = getMultiAdapter((self.portal, e, DummyEvent(self.portal)), IExecutable)
         self.assertEqual(False, ex())
 
         self.portal.setExpirationDate(DateTime() + 1)

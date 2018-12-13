@@ -8,9 +8,9 @@ from plone.app.contentrules.browser.formhelper import AddForm
 from plone.app.contentrules.browser.formhelper import EditForm
 from plone.contentrules.rule.interfaces import IExecutable
 from plone.contentrules.rule.interfaces import IRuleElementData
-from z3c.form import form
 from zope import schema
 from zope.component import adapter
+from zope.formlib import form
 from zope.interface import implementer
 from zope.interface import Interface
 
@@ -78,7 +78,7 @@ class DateIndexConditionExecutor(object):
 class DateIndexAddForm(AddForm):
     """An add form for date index rule conditions.
     """
-    schema = IDateIndexCondition
+    form_fields = form.FormFields(IDateIndexCondition)
     label = _(u'Add Date Index Condition')
     description = _(
         u'A date index condition can restrict a rule from '
@@ -88,7 +88,7 @@ class DateIndexAddForm(AddForm):
 
     def create(self, data):
         c = DateIndexCondition()
-        form.applyChanges(self, c, data)
+        form.applyChanges(c, self.form_fields, data)
         return c
 
 
@@ -97,7 +97,7 @@ class DateIndexEditForm(EditForm):
 
     z3c.form does all the magic here.
     """
-    schema = IDateIndexCondition
+    form_fields = form.FormFields(IDateIndexCondition)
     label = _(u'Edit Date Index Condition')
     description = _(
         u'A date index condition can restrict a rule from '
