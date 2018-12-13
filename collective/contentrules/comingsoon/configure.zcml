@@ -4,6 +4,7 @@
     xmlns:five="http://namespaces.zope.org/five"
     xmlns:i18n="http://namespaces.zope.org/i18n"
     xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
     i18n_domain="plone">
 
@@ -53,6 +54,33 @@
       type="plone.contentrules.rule.interfaces.IRuleEventType"
       name="Coming soon"
       />
+
+  <!-- Date index condition -->
+  <adapter factory=".dateindex.DateIndexConditionExecutor" />
+  <browser:page
+      for="plone.app.contentrules.browser.interfaces.IRuleConditionAdding"
+      name="comingsoon.condition.DateIndex"
+      class=".dateindex.DateIndexAddForm"
+      permission="plone.app.contentrules.ManageContentRules"
+      />
+  <browser:page
+      for=".dateindex.IDateIndexCondition"
+      name="edit"
+      class=".dateindex.DateIndexEditForm"
+      permission="plone.app.contentrules.ManageContentRules"
+      />
+  <plone:ruleCondition
+      name="comingsoon.condition.DateIndex"
+      title="Date index"
+      description="Apply only to a particular file extension"
+      for=".interfaces.IComingSoon"
+      event="zope.component.interfaces.IObjectEvent"
+      addview="comingsoon.condition.DateIndex"
+      editview="edit"
+      schema=".dateindex.IDateIndexCondition"
+      factory=".dateindex.DateIndexCondition"
+      />
+  <!-- Date index condition -->
 
   <subscriber
       for=".interfaces.IComingSoon"
