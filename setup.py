@@ -38,15 +38,15 @@ setup(name='collective.contentrules.comingsoon',
       include_package_data=True,
       zip_safe=False,
       install_requires=[
-          'setuptools',
-          # -*- Extra requirements: -*-
-          "collective.z3cform.datagridfield",
-          "ecreall.helpers.upgrade",
-          "five.grok",
-          "plone.api",
+          'collective.z3cform.datagridfield',
+          'ecreall.helpers.upgrade',
+          'five.grok',
+          'plone.api',
           'plone.app.contentrules',
           'plone.app.registry',
           'plone.app.vocabularies',
+          'setuptools',
+          'zope.formlib',
       ],
       extras_require={
           'test': [
